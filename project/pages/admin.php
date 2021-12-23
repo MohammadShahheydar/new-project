@@ -5,6 +5,7 @@
     }
     
     include_once 'config.php';
+    $pullGit = "just for test";
 ?>
 
 <!doctype html>
