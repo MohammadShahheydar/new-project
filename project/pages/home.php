@@ -5,6 +5,8 @@
     } else {
         $display = "none";
     }
+    include_once 'config.php';
+    $images = getSlider ();
 ?>
 
 <!doctype html>
@@ -81,20 +83,17 @@
                 color: #fff;
                 background: #007aff;
             }
+            
         </style>
     </head>
     <body>
         <div class="swiper mySwiper">
             <div class="swiper-wrapper">
-                <div class="swiper-slide">Slide 1</div>
-                <div class="swiper-slide">Slide 2</div>
-                <div class="swiper-slide">Slide 3</div>
-                <div class="swiper-slide">Slide 4</div>
-                <div class="swiper-slide">Slide 5</div>
-                <div class="swiper-slide">Slide 6</div>
-                <div class="swiper-slide">Slide 7</div>
-                <div class="swiper-slide">Slide 8</div>
-                <div class="swiper-slide">Slide 9</div>
+                <?php foreach ($images as $image): ?>
+                    <div class="swiper-slide">
+                        <img class="img-fluid" src="../image/<?php echo $image['image'] ?>" alt="<?php echo $image['image_alt'] ?>">
+                    </div>
+                <?php endforeach; ?>
             </div>
             <div class="swiper-pagination"></div>
         </div>
@@ -119,7 +118,7 @@
         </script>
         
         <?php
-            session_destroy();
+            session_destroy ();
         ?>
     </body>
 </html>
